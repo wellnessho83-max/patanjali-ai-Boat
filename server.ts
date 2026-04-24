@@ -11,7 +11,7 @@ async function startServer() {
   // API Route to fetch and parse available doctors
   app.get("/api/doctors", async (req, res) => {
     try {
-      const response = await axios.get("https://patanjaliwellness.com/doctor-list.php", {
+      const response = await axios.get("https://patanjaliwellness.com/doctorList.php", {
         headers: {
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         }
@@ -61,7 +61,10 @@ async function startServer() {
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
-      server: { middlewareMode: true },
+      server: { 
+        middlewareMode: true,
+        hmr: false, // Explicitly disable HMR to fix WebSocket connection errors
+      },
       appType: "spa",
     });
     app.use(vite.middlewares);
