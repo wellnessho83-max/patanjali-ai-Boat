@@ -1,6 +1,17 @@
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "AIzaSyCQB48vYTeaQ0VSe2ETT2zLyrkjUAfy_6A" });
+let genAI: GoogleGenAI | null = null;
+
+function getGenAI() {
+  if (!genAI) {
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+      throw new Error("Missing GEMINI_API_KEY environment variable. Please add it in the Settings menu.");
+    }
+    genAI = new GoogleGenAI({ apiKey });
+  }
+  return genAI;
+}
 
 const SYSTEM_PROMPT = `
 You are the Patanjali Wellness AI Assistant, an expert in Ayurveda, Yoga, Naturopathy, and the official guidelines for Patanjali Wellness. 
@@ -134,6 +145,8 @@ export async function chatWithWellnessAI(
   liveDoctorContext?: string
 ) {
   try {
+    const ai = getGenAI();
+    
     const customPrompt = liveDoctorContext 
       ? `${SYSTEM_PROMPT}\n\nLATEST LIVE DOCTOR UPDATES:\n${liveDoctorContext}`
       : SYSTEM_PROMPT;
@@ -153,6 +166,9 @@ export async function chatWithWellnessAI(
     return response.text;
   } catch (error) {
     console.error("Gemini API Error:", error);
+    if (error instanceof Error && error.message.includes("Missing GEMINI_API_KEY")) {
+      throw error;
+    }
     throw new Error("I'm having trouble connecting to my wellness knowledge base. Please try again later.");
   }
 }
