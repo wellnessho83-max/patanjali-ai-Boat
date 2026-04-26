@@ -279,30 +279,30 @@ function SidebarContent({ lastUpdated, doctorStats, doctorsList, onLeaveList, se
           
           <div className="space-y-2 lg:space-y-3">
             {doctorsList.slice(0, 10).map((doc, i) => (
-              <div 
+                <div 
                 key={i} 
                 onClick={() => setSelectedDoctor(doc)}
-                className="group p-3 rounded-2xl bg-white dark:bg-stone-800/40 border border-stone-200 dark:border-stone-700/50 hover:border-p-green transition-all cursor-pointer"
+                className="group p-4 rounded-2xl bg-white dark:bg-stone-800/40 border-2 border-transparent hover:border-p-green hover:shadow-2xl hover:shadow-p-green/10 transition-all cursor-pointer relative overflow-hidden"
               >
-                <div className="flex items-center justify-between mb-1.5 lg:mb-2">
-                  <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 rounded-lg bg-p-green/10 text-p-green flex items-center justify-center text-[10px] font-bold">
+                <div className="absolute top-0 right-0 w-12 h-12 bg-p-green/5 rounded-full -mr-6 -mt-6 group-hover:bg-p-green/10 transition-colors"></div>
+                
+                <div className="flex items-center justify-between mb-3 relative z-10">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-p-green to-emerald-600 text-white flex items-center justify-center text-[12px] font-black shadow-lg shadow-p-green/20">
                       {doc.name.charAt(doc.name.startsWith("Dr.") ? 3 : 0)}
                     </div>
                     <div>
-                      <p className="text-[11px] font-bold text-stone-800 dark:text-stone-100 truncate w-24">
+                      <p className="text-[12px] font-black text-stone-800 dark:text-stone-100 truncate w-28 group-hover:text-p-green transition-colors">
                         {doc.name}
                       </p>
-                      <p className="text-[9px] font-medium text-stone-400">OPD: {doc.opd}</p>
+                      <p className="text-[9px] font-bold text-stone-400 dark:text-stone-500 uppercase tracking-wider mt-0.5">OPD: {doc.opd}</p>
                     </div>
                   </div>
-                  <div className="flex flex-col items-end gap-1">
-                    <ChevronRight className="w-3 h-3 text-stone-300 group-hover:text-p-green transition-colors" />
-                  </div>
+                  <ChevronRight className="w-4 h-4 text-stone-200 group-hover:text-p-green group-hover:translate-x-1 transition-all" />
                 </div>
-                <div className="flex items-center gap-1">
-                  <span className="w-1 h-1 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-[8px] font-bold text-green-600/80 uppercase tracking-tighter">Available Now</span>
+                <div className="flex items-center gap-2 relative z-10">
+                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.5)]" />
+                  <span className="text-[9px] font-black text-green-600 dark:text-green-500 uppercase tracking-widest">Available Now</span>
                 </div>
               </div>
             ))}
@@ -550,15 +550,23 @@ export default function App() {
       </AnimatePresence>
 
       {/* Sidebar: Wellness Context (Desktop) */}
-      <aside className="hidden lg:flex w-80 h-full border-r border-stone-200 dark:border-stone-800 p-6 flex-col gap-6 bg-white dark:bg-stone-900 overflow-hidden relative">
-        <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-p-saffron via-p-yellow to-p-blue"></div>
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 bg-gradient-to-br from-p-saffron to-orange-600 rounded-2xl flex items-center justify-center text-white font-bold serif text-2xl shadow-lg shadow-p-saffron/20 rotate-3 transition-transform hover:rotate-0">
+      <aside className="hidden lg:flex w-80 h-full border-r border-stone-200 dark:border-stone-800 p-6 flex-col gap-6 bg-white dark:bg-stone-900 overflow-hidden relative group">
+        {/* Animated decorative backgrounds */}
+        <div className="absolute -top-24 -left-24 w-48 h-48 bg-p-saffron/10 rounded-full blur-3xl group-hover:bg-p-saffron/20 transition-all duration-1000"></div>
+        <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-p-blue/10 rounded-full blur-3xl group-hover:bg-p-blue/20 transition-all duration-1000"></div>
+        
+        <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-p-saffron via-p-yellow via-p-green to-p-blue"></div>
+        
+        <div className="flex items-center gap-3 mb-4 relative z-10">
+          <div className="w-14 h-14 bg-gradient-to-br from-p-saffron via-p-orange-bright to-orange-600 rounded-2xl flex items-center justify-center text-white font-bold serif text-3xl shadow-xl shadow-p-saffron/30 rotate-3 transition-all hover:rotate-0 hover:scale-105">
             P
           </div>
           <div>
-            <h1 className="font-bold text-lg tracking-tight serif dark:text-stone-100 leading-none">Patanjali</h1>
-            <p className="text-[10px] font-bold text-p-green dark:text-p-sage uppercase tracking-[0.2em] mt-1">Wellness Centre</p>
+            <h1 className="font-extrabold text-xl tracking-tight serif dark:text-stone-100 leading-none bg-gradient-to-r from-stone-800 to-stone-500 dark:from-white dark:to-stone-400 bg-clip-text text-transparent">Patanjali</h1>
+            <p className="text-[10px] font-black text-p-green dark:text-p-sage uppercase tracking-[0.25em] mt-1.5 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-p-green animate-pulse"></span>
+              Wellness Centre
+            </p>
           </div>
         </div>
         <SidebarContent 
@@ -571,23 +579,27 @@ export default function App() {
       </aside>
 
       {/* Main Chat Area */}
-      <main className="flex-1 flex flex-col relative h-full bg-p-cream transition-colors duration-300 overflow-hidden">
+      <main className="flex-1 flex flex-col relative h-full bg-p-cream dark:bg-stone-950 transition-colors duration-500 overflow-hidden">
         {/* Header Navigation */}
-        <header className="h-16 lg:h-20 border-b border-stone-200 dark:border-stone-800 px-4 lg:px-8 flex items-center justify-between bg-white/70 dark:bg-stone-900/70 backdrop-blur-md relative z-20 transition-colors duration-300">
-          <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-p-blue via-p-green to-p-yellow"></div>
+        <header className="h-16 lg:h-20 border-b border-stone-200 dark:border-stone-800 px-4 lg:px-8 flex items-center justify-between bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl relative z-20 transition-colors duration-300 shadow-sm shadow-stone-200/50">
+          <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-p-blue via-p-emerald via-p-green via-p-yellow to-p-saffron"></div>
+          
           <div className="flex items-center gap-3">
             <button 
               onClick={() => setIsMobileMenuOpen(true)}
-              className="lg:hidden p-2 text-stone-500 dark:text-stone-400 bg-stone-100 dark:bg-stone-800 rounded-xl hover:bg-p-blue/10 hover:text-p-blue transition-all"
+              className="lg:hidden p-3 text-stone-500 dark:text-stone-400 bg-stone-100 dark:bg-stone-800 rounded-2xl hover:bg-p-blue/10 hover:text-p-blue transition-all border border-stone-200/50 dark:border-stone-700/50"
             >
               <HelpCircle className="w-6 h-6" />
             </button>
             <div className="flex flex-col">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-p-green shadow-[0_0_15px_rgba(45,106,79,0.5)] animate-pulse"></div>
-                <h2 className="serif text-base lg:text-xl font-bold bg-gradient-to-r from-p-green to-p-blue bg-clip-text text-transparent">Wellness AI Assistant</h2>
+              <div className="flex items-center gap-3">
+                <div className="relative">
+                  <div className="w-3.5 h-3.5 rounded-full bg-p-green shadow-[0_0_15px_rgba(45,106,79,0.7)] animate-pulse"></div>
+                  <div className="absolute inset-0 w-3.5 h-3.5 rounded-full bg-p-green animate-ping opacity-20"></div>
+                </div>
+                <h2 className="serif text-base lg:text-2xl font-black bg-gradient-to-r from-p-green via-p-deep-blue to-p-blue bg-clip-text text-transparent tracking-tight">Wellness AI Assistant</h2>
               </div>
-              <p className="hidden xs:block text-[8px] font-bold text-stone-400 uppercase tracking-widest leading-none mt-0.5">Patanjali Official Digital Seva</p>
+              <p className="hidden xs:block text-[9px] font-black text-stone-400 dark:text-stone-500 uppercase tracking-[0.2em] leading-none mt-1.5">Official Global Digital Seva</p>
             </div>
           </div>
 
@@ -633,16 +645,21 @@ export default function App() {
                 )}
               >
                 <div className={cn(
-                  "w-10 h-10 rounded-2xl shrink-0 flex items-center justify-center text-lg shadow-xl transition-all duration-500",
-                  message.role === "user" ? "bg-gradient-to-br from-p-blue to-p-blue/70 text-white rotate-3" : "bg-gradient-to-br from-white to-stone-100 dark:from-stone-800 dark:to-stone-900 border border-stone-200 dark:border-stone-700 -rotate-3"
+                  "w-11 h-11 rounded-2xl shrink-0 flex items-center justify-center text-xl shadow-2xl transition-all duration-500",
+                  message.role === "user" ? "bg-gradient-to-br from-p-blue via-p-deep-blue to-p-blue/70 text-white rotate-3 hover:rotate-0" : "bg-gradient-to-br from-white via-stone-50 to-stone-100 dark:from-stone-800 dark:to-stone-900 border border-stone-200 dark:border-stone-700 -rotate-3 hover:rotate-0"
                 )}>
                   {message.role === "user" ? "AS" : (index === 0 ? "🔱" : "🌿")}
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-2 max-w-[85%] lg:max-w-[75%]">
                   <div className={cn(
-                    "p-5 px-6 text-[13px] lg:text-sm leading-relaxed shadow-xl",
-                    message.role === "user" ? "bubble-user bg-p-blue" : "bubble-bot border-l-4 border-l-p-saffron"
+                    "p-5 px-6 text-[13px] lg:text-[14px] leading-relaxed shadow-xl relative overflow-hidden",
+                    message.role === "user" 
+                      ? "bubble-user bg-gradient-to-r from-p-blue to-p-deep-blue text-white font-medium" 
+                      : "bubble-bot bg-white dark:bg-stone-900 border-l-4 border-l-p-saffron dark:text-stone-200"
                   )}>
+                    {message.role === "model" && index > 0 && (
+                      <div className="absolute top-0 right-0 w-16 h-16 bg-p-saffron/5 rounded-full -mr-8 -mt-8"></div>
+                    )}
                     <div className="markdown-body">
                       <ReactMarkdown>
                         {message.text.replace(/\[YOGA:([a-z-]+)\]/g, "")}
@@ -706,12 +723,19 @@ export default function App() {
               </div>
             </div>
             
-            <div className="flex justify-center flex-wrap gap-x-4 gap-y-2 px-4 overflow-hidden">
-              {SUGGESTIONS.map((s) => (
+            <div className="flex justify-center flex-wrap gap-x-4 gap-y-3 px-4 overflow-hidden">
+              {SUGGESTIONS.map((s, idx) => (
                 <button
                   key={s.id}
                   onClick={() => handleSend(s.query)}
-                  className="text-[9px] text-p-blue dark:text-p-blue/90 font-bold uppercase tracking-wider cursor-pointer hover:bg-p-blue hover:text-white transition-all bg-p-blue/10 dark:bg-p-blue/20 px-3 py-1.5 rounded-full border border-p-blue/10"
+                  style={{ animationDelay: `${idx * 100}ms` }}
+                  className={cn(
+                    "text-[10px] font-black uppercase tracking-widest cursor-pointer px-4 py-2 rounded-xl border transition-all hover:scale-105 active:scale-95 shadow-sm hover:shadow-md animate-in fade-in slide-in-from-bottom-2",
+                    idx === 0 ? "bg-p-saffron/10 text-p-saffron border-p-saffron/20 hover:bg-p-saffron hover:text-white" :
+                    idx === 1 ? "bg-p-green/10 text-p-green border-p-green/20 hover:bg-p-green hover:text-white" :
+                    idx === 2 ? "bg-p-blue/10 text-p-blue border-p-blue/20 hover:bg-p-blue hover:text-white" :
+                    "bg-p-yellow/10 text-stone-600 border-p-yellow/30 hover:bg-p-yellow hover:text-stone-900"
+                  )}
                 >
                   {s.label}
                 </button>
@@ -721,69 +745,84 @@ export default function App() {
         </div>
 
         {/* Mobile Bottom Navigation */}
-        <div className="lg:hidden fixed bottom-4 left-4 right-4 h-16 bg-white/90 dark:bg-stone-900/90 backdrop-blur-xl border border-stone-200 dark:border-stone-700 flex items-center justify-around px-4 z-40 rounded-[28px] shadow-2xl shadow-blue-900/20">
+        <div className="lg:hidden fixed bottom-6 left-6 right-6 h-16 bg-white/95 dark:bg-stone-900/95 backdrop-blur-3xl border-2 border-white/20 dark:border-stone-800/50 flex items-center justify-around px-4 z-40 rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
           <button 
             onClick={() => setMessages([{
               role: "model",
-              text: "🙏 Om Namaste! Reset successfully. How can I help you today?",
+              text: "🙏 Om Namaste! I am your Patanjali Wellness AI. How may I assist you with Yoga or Ayurveda today?",
               timestamp: new Date(),
             }])}
-            className="flex flex-col items-center gap-1 text-stone-400 hover:text-p-saffron transition-colors"
+            className="flex flex-col items-center gap-1 text-stone-400 hover:text-p-saffron transition-all active:scale-90"
           >
-            <Heart className="w-5 h-5" />
-            <span className="text-[9px] font-bold uppercase tracking-tighter">Reset</span>
+            <div className="p-1 px-2 mb-0.5 rounded-lg hover:bg-p-saffron/10 transition-colors">
+              <Heart className="w-5 h-5" />
+            </div>
+            <span className="text-[8px] font-black uppercase tracking-widest leading-none">Reset</span>
           </button>
           
           <button 
             onClick={() => setIsContactFormOpen(true)}
-            className="flex flex-col items-center gap-1 text-stone-400 hover:text-p-blue transition-colors"
+            className="flex flex-col items-center gap-1 text-stone-400 hover:text-p-blue transition-all active:scale-90"
           >
-            <Calendar className="w-5 h-5" />
-            <span className="text-[9px] font-bold uppercase tracking-tighter">Portal</span>
+            <div className="p-1 px-2 mb-0.5 rounded-lg hover:bg-p-blue/10 transition-colors">
+              <Calendar className="w-5 h-5" />
+            </div>
+            <span className="text-[8px] font-black uppercase tracking-widest leading-none">Portal</span>
           </button>
 
           <button 
             onClick={() => setIsMobileMenuOpen(true)}
-            className="flex flex-col items-center gap-1 p-3 -mt-12 bg-gradient-to-tr from-p-saffron to-p-yellow text-white rounded-2xl shadow-xl shadow-p-saffron/40 border-4 border-p-cream dark:border-stone-900 transform active:scale-95 transition-all"
+            className="flex flex-col items-center gap-1 p-4 -mt-14 bg-gradient-to-tr from-p-saffron via-p-orange-bright to-p-yellow text-white rounded-[24px] shadow-2xl shadow-p-saffron/40 border-[5px] border-p-cream dark:border-stone-950 transform active:scale-90 transition-all group relative"
           >
-            <Stethoscope className="w-6 h-6" />
+            <div className="absolute inset-0 bg-white/20 rounded-[19px] scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+            <Stethoscope className="w-7 h-7 relative z-10" />
           </button>
 
           <a 
             href={`https://wa.me/${CONTACT_DATA.whatsapp}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center gap-1 text-stone-400 hover:text-p-green transition-colors"
+            className="flex flex-col items-center gap-1 text-stone-400 hover:text-p-green transition-all active:scale-90"
           >
-            <MessageCircle className="w-5 h-5 text-green-500" />
-            <span className="text-[9px] font-bold uppercase tracking-tighter">WhatsApp</span>
+            <div className="p-1 px-2 mb-0.5 rounded-lg hover:bg-p-green/10 transition-colors">
+              <MessageCircle className="w-5 h-5 text-p-green" />
+            </div>
+            <span className="text-[8px] font-black uppercase tracking-widest leading-none">Chat</span>
           </a>
 
           <a 
             href="https://patanjaliwellness.com/sitemap.php"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center gap-1 text-stone-400 hover:text-p-blue transition-colors"
+            className="flex flex-col items-center gap-1 text-stone-400 hover:text-p-blue transition-all active:scale-90"
           >
-            <Map className="w-5 h-5" />
-            <span className="text-[9px] font-bold uppercase tracking-tighter">Guide</span>
+            <div className="p-1 px-2 mb-0.5 rounded-lg hover:bg-p-blue/10 transition-colors">
+              <Map className="w-5 h-5" />
+            </div>
+            <span className="text-[8px] font-black uppercase tracking-widest leading-none">Map</span>
           </a>
         </div>
       </main>
 
       {/* Background Motifs */}
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-p-yellow/5 rounded-full blur-[120px] transition-opacity"></div>
+        <div className="absolute bottom-0 left-0 w-[50%] h-[50%] bg-p-blue/5 rounded-full blur-[120px] transition-opacity"></div>
         <img 
           src="https://patanjaliwellness.com/assets/images/Home-Banner/desktop-web-b/Haridwar-webbanner.webp"
           alt="Haridwar Background"
-          className="w-full h-full object-cover opacity-[0.08] dark:opacity-[0.04] transition-opacity duration-1000"
+          className="w-full h-full object-cover opacity-[0.06] dark:opacity-[0.03] transition-opacity duration-1000 grayscale hover:grayscale-0"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-p-cream/50 via-transparent to-p-cream/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-p-cream/40 via-transparent to-p-cream/40 dark:from-stone-950 dark:to-stone-950" />
       </div>
 
-      <div className="fixed top-20 right-0 -z-0 opacity-[0.03] dark:opacity-[0.01] pointer-events-none rotate-12 transition-opacity">
-        <Leaf className="w-[500px] h-[500px]" />
+      <div className="fixed top-20 right-0 -z-0 opacity-[0.04] dark:opacity-[0.01] pointer-events-none rotate-12 transition-opacity">
+        <Leaf className="w-[600px] h-[600px] text-p-green" />
+      </div>
+      
+      <div className="fixed bottom-20 left-0 -z-0 opacity-[0.03] dark:opacity-[0.01] pointer-events-none -rotate-12 transition-opacity">
+        <Leaf className="w-[400px] h-[400px] text-p-saffron" />
       </div>
 
       <AnimatePresence>

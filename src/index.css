@@ -9,9 +9,12 @@
   --color-p-green: #2d6a4f;
   --color-p-yellow: #f9c74f;
   --color-p-blue: #0077b6;
+  --color-p-deep-blue: #023e8a;
+  --color-p-emerald: #0891b2;
   --color-p-cream: var(--p-cream);
   --color-p-sage: #8da989;
   --color-p-stone: #5A5A40;
+  --color-p-orange-bright: #ff9f1c;
 
   --color-sidebar-bg: var(--sidebar-bg);
   --color-header-bg: var(--header-bg);

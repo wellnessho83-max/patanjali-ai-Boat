@@ -19,6 +19,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -59,18 +60,24 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
     e.preventDefault();
     
     if (!validate()) return;
-    const whatsappNumber = CONTACT_DATA.whatsapp;
-    const text = `*New Treatment Inquiry*\n\n` +
-                 `*Name:* ${formData.name}\n` +
-                 `*Mobile:* ${formData.mobile}\n` +
-                 `*Email:* ${formData.email}\n` +
-                 `*Center:* ${formData.center || "Not Selected"}\n` +
-                 `*Message:* ${formData.message}`;
+    setIsSubmitting(true);
     
-    const encodedText = encodeURIComponent(text);
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
-    
-    window.open(whatsappUrl, '_blank');
+    // Simulate slight delay for professional feel before redirection
+    setTimeout(() => {
+      const whatsappNumber = CONTACT_DATA.whatsapp;
+      const text = `*New Treatment Inquiry*\n\n` +
+                   `*Name:* ${formData.name}\n` +
+                   `*Mobile:* ${formData.mobile}\n` +
+                   `*Email:* ${formData.email}\n` +
+                   `*Center:* ${formData.center || "Not Selected"}\n` +
+                   `*Message:* ${formData.message}`;
+      
+      const encodedText = encodeURIComponent(text);
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+      
+      window.open(whatsappUrl, '_blank');
+      setIsSubmitting(false);
+    }, 1000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -119,13 +126,13 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
 
           {/* Left Side: Form (Get In Touch for Treatment) - MOVED TO TOP/LEFT */}
           <div className="flex-1 p-8 pt-20 lg:p-12 lg:pt-24 border-b lg:border-b-0 lg:border-r border-stone-100 dark:border-stone-800">
-            <div className="mb-10 lg:pr-12">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-p-blue shadow-[0_0_8px_rgba(0,119,182,0.8)]"></div>
-                <p className="text-[10px] font-bold text-p-blue uppercase tracking-[0.3em]">Direct Seva</p>
+            <div className="mb-12 lg:pr-12 relative z-10">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-2.5 h-2.5 rounded-full bg-p-blue shadow-[0_0_12px_rgba(0,119,182,0.8)] animate-pulse"></div>
+                <p className="text-[11px] font-black text-p-blue uppercase tracking-[0.4em]">Integrated Wellness</p>
               </div>
-              <h2 className="serif text-4xl font-bold text-stone-800 dark:text-stone-100 mb-3 leading-tight">Treatment Inquiry</h2>
-              <p className="text-sm text-stone-500 dark:text-stone-400 font-medium leading-relaxed">Let us guide you towards holistic healing. Connect with our experts today.</p>
+              <h2 className="serif text-4xl lg:text-5xl font-black text-stone-800 dark:text-stone-100 mb-4 leading-[1.1] tracking-tight">Treatment Inquiry</h2>
+              <p className="text-[15px] text-stone-500 dark:text-stone-400 font-semibold leading-relaxed max-w-md">Begin your journey of self-discovery and holistic healing with our world-class medical experts.</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -254,10 +261,16 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
 
               <button 
                 type="submit"
-                className="w-full py-5 bg-gradient-to-r from-p-green to-emerald-700 hover:shadow-2xl hover:shadow-p-green/40 text-white font-bold rounded-[20px] shadow-xl shadow-p-green/20 flex items-center justify-center gap-3 transition-all active:scale-[0.98] text-sm uppercase tracking-widest group"
+                disabled={isSubmitting}
+                className="w-full py-6 bg-gradient-to-r from-p-green via-emerald-600 to-p-blue hover:shadow-[0_20px_50px_rgba(45,106,79,0.3)] text-white font-black rounded-3xl shadow-2xl shadow-p-green/20 flex items-center justify-center gap-4 transition-all active:scale-[0.97] text-sm uppercase tracking-[0.2em] group overflow-hidden relative disabled:opacity-70"
               >
-                <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                Submit Secure Inquiry
+                <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+                {isSubmitting ? (
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                ) : (
+                  <Send className="w-5 h-5 relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                )}
+                <span className="relative z-10">{isSubmitting ? "Sending..." : "Send Secure Inquiry For Healing"}</span>
               </button>
             </form>
           </div>
