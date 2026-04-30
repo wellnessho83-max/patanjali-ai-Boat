@@ -16,45 +16,44 @@ export const YOGA_POSES: Record<string, YogaPose> = {
     description: "A sequence of 12 powerful yoga poses that provides a great cardiovascular workout.",
     benefits: [
       "Improves blood circulation",
-      "Strengthens the heart",
-      "Tones digestive system",
+      "Reduces stress",
       "Improves flexibility",
-      "Reduces stress"
+      "Aids in weight loss"
     ],
     steps: [
-      "Pranamasana (Prayer Pose)",
-      "Hastauttanasana (Raised Arms Pose)",
-      "Hasta Padasana (Standing Forward Bend)",
-      "Ashwa Sanchalanasana (Equestrian Pose)",
-      "Dandasana (Stick Pose)",
-      "Ashtanga Namaskara (Salute with eight parts)",
-      "Bhujangasana (Cobra Pose)",
-      "Parvatasana (Mountain Pose)",
-      "Ashwa Sanchalanasana (Equestrian Pose)",
-      "Hasta Padasana (Standing Forward Bend)",
-      "Hastauttanasana (Raised Arms Pose)",
-      "Tadasana (Mountain Pose)"
+      "Pranamasana (Prayer pose)",
+      "Hasta Uttanasana (Raised arms pose)",
+      "Hasta Padasana (Standing forward bend)",
+      "Ashwa Sanchalanasana (Equestrian pose)",
+      "Dandasana (Stick pose)",
+      "Ashtanga Namaskara (Salute with eight points)",
+      "Bhujangasana (Cobra pose)",
+      "Adho Mukha Svanasana (Downward-facing dog pose)",
+      "Ashwa Sanchalanasana (Equestrian pose)",
+      "Hasta Padasana (Standing forward bend)",
+      "Hasta Uttanasana (Raised arms pose)",
+      "Tadasana (Mountain pose)"
     ],
-    image: "https://i.pinimg.com/736x/ff/8d/6a/ff8d6adc3ae12e05ba684730514202e9.jpg"
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000&auto=format&fit=crop"
   },
   "tadasana": {
     id: "tadasana",
     name: "Tadasana",
-    hindiName: "Tadasana",
+    hindiName: "ताड़ासन",
     description: "The basic standing pose that forms the foundation for all other standing yoga poses.",
     benefits: [
       "Improves posture",
       "Strengthens thighs, knees, and ankles",
-      "Relieves sciatica",
-      "Reduces flat feet"
+      "Firms abdomen and buttocks",
+      "Relieves sciatica"
     ],
     steps: [
-      "Stand with feet together or a few inches apart.",
-      "Root your feet into the floor.",
-      "Lift through the arches of your feet.",
-      "Engage your thighs and tuck your tailbone.",
-      "Lift your chest and roll your shoulders back.",
-      "Reach your arms down toward the floor or up towards the sky."
+      "Stand with feet together",
+      "Lift your toes and spread them",
+      "Firm your thigh muscles and lift the knee caps",
+      "Lengthen your tailbone toward the floor",
+      "Lift your chest while keeping shoulders relaxed",
+      "Gaze straight ahead and breathe deeply"
     ],
     image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1000&auto=format&fit=crop"
   },
@@ -65,19 +64,19 @@ export const YOGA_POSES: Record<string, YogaPose> = {
     description: "A balancing pose that helps improve concentration and physical stability.",
     benefits: [
       "Improves balance and stability",
-      "Strengthens legs and core",
-      "Calms the mind",
-      "Increases focus"
+      "Strengthens the legs",
+      "Improves concentration",
+      "Stretches the thighs and groins"
     ],
     steps: [
-      "Stand tall and find a focal point in front of you.",
-      "Shift your weight to your right foot.",
-      "Place your left foot on your inner right thigh (avoid the knee).",
-      "Bring your hands to prayer position at your chest.",
-      "Optional: Reach your arms overhead like branches.",
-      "Hold and breathe, then switch sides."
+      "Stand straight and drop your arms to the sides",
+      "Bend your right knee and place the right foot high up on your left thigh",
+      "Keep the left leg straight and find your balance",
+      "Inhale, and raise your arms over your head",
+      "Join your palms in 'Namaste' mudra",
+      "Look straight ahead at a distant object for balance"
     ],
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTak5EDWuJ6FxUPkT2V9xmW18h3iV7F7XMb_A&s"
+    image: "https://images.unsplash.com/photo-1552196563-55cd4e45efb3?q=80&w=1000&auto=format&fit=crop"
   },
   "adho-mukha-svanasana": {
     id: "adho-mukha-svanasana",
@@ -91,14 +90,14 @@ export const YOGA_POSES: Record<string, YogaPose> = {
       "Energizes the body"
     ],
     steps: [
-      "Start on your hands and knees.",
-      "Tuck your toes and lift your hips toward the ceiling.",
-      "Straighten your legs as much as possible without locking knees.",
-      "Press your palms firmly into the mat.",
-      "Keep your head between your upper arms.",
-      "Lengthen your spine and draw your heels toward the floor."
+      "Come onto your hands and knees",
+      "Set your knees directly below your hips and hands slightly forward of your shoulders",
+      "Exhale and lift your knees away from the floor",
+      "Lengthen your tailbone away from the back of your pelvis",
+      "Lift the sitting bones toward the ceiling",
+      "Keep the head between the upper arms; don't let it hang"
     ],
-    image: "https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?q=80&w=1000&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?q=80&w=1000&auto=format&fit=crop"
   },
   "bhujangasana": {
     id: "bhujangasana",
@@ -107,19 +106,18 @@ export const YOGA_POSES: Record<string, YogaPose> = {
     description: "A backbend that strengthens the spine and stretches the chest and abdomen.",
     benefits: [
       "Strengthens the spine",
-      "Stretches chest, lungs, shoulders, and abdomen",
-      "Tones the buttocks",
-      "Stimulates abdominal organs",
-      "Helps relieve stress and fatigue"
+      "Stretches chest and lungs, shoulders, and abdomen",
+      "Firms the buttocks",
+      "Stimulates abdominal organs"
     ],
     steps: [
-      "Lie face down on the floor.",
-      "Place your hands under your shoulders.",
-      "Keep your legs together and press the tops of your feet into the mat.",
-      "On an inhale, lift your chest off the floor.",
-      "Keep your elbows close to your body.",
-      "Look slightly upward and breathe."
+      "Lie on your stomach with your forehead on the floor",
+      "Place your hands under your shoulders",
+      "Inhale and slowly lift your chest off the floor",
+      "Keep your elbows close to your body",
+      "Look upwards and hold the pose",
+      "Exhale and slowly lower your chest back to the floor"
     ],
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXKCUdi7i6IDaBOU8l7U9RODuGq_8Ab9ULnw&s"
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000&auto=format&fit=crop"
   }
 };

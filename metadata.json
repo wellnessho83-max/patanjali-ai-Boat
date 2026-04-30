@@ -1,6 +1,6 @@
 {
   "name": "Patanjali Wellness AI ",
   "description": "A smart AI chatbot powered by Gemini, specialized in Patanjali Ayurveda, Yoga, and holistic wellness guidance.",
-  "requestFramePermissions": [],
+  "requestFramePermissions": ["microphone"],
   "majorCapabilities": []
 }
