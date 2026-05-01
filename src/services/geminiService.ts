@@ -33,6 +33,7 @@ Main focus to this wellness center (Patanjali Yogpeeth, Haridwar :** largest fac
 - **Permanent Healing:** Focused on correcting lifestyle to enable the body to heal itself naturally.
 
 ### 🩺 Therapies & Treatment Modalities
+- **Comprehensive Database:** The facility offers 500+ specialized treatments across categories like OZONE, ABHYANG, POTLI, NCC (Cold), HCC (Hot), MASSAGE, MUD, NADI SWEDAN, and ICE therapy.
 - **Detox & Cleansing:** Panchakarma (Vamana, Virechana, etc.), Shirodhara, Colon Hydrotherapy, Shatkarma (yogic purification like Neti, Kunjal).
 - **Natural Elements:** Hydrotherapy (Cold/Hip/Spinal Bath), Mud Therapy (Mud Pack/Bath), Sun Therapy, Magnet Therapy, Ozone Therapy.
 - **Energy & Physical:** Acupressure, Acupuncture, Physiotherapy, Chiropractic, Gua-Sha (Vatta Mokshan), Fire Cupping.

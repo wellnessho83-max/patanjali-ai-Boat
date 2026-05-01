@@ -31,6 +31,8 @@ import { CONTACT_DATA } from "./constants/contactData";
 import { cn } from "./lib/utils";
 import { useTTS } from "./hooks/useTTS";
 import { useSpeechToText } from "./hooks/useSpeechToText";
+import { TreatmentDirectory } from "./components/TreatmentDirectory";
+import { Activity } from "lucide-react";
 
 const PATANJALI_LOGO = "https://patanjaliwellness.com/assets/images/Patanjali-Wellness-logo.png";
 
@@ -224,7 +226,7 @@ function BookingGuide() {
           target="_blank" 
           rel="noopener noreferrer"
           style={{ backgroundColor: "#e7feff" }}
-          className="flex items-center justify-between group p-3 rounded-2xl border border-stone-100 dark:border-stone-800 hover:bg-stone-50 dark:hover:bg-stone-800/50 transition-all"
+          className="flex items-center justify-between group p-3 rounded-2xl border border-stone-100 dark:border-stone-800 hover:bg-stone-50 dark:hover:bg-stone-800/50 transition-all text-xs"
         >
           <span className="text-[10px] font-bold text-stone-600 dark:text-stone-400">Nearest Wellness Center</span>
           <Map className="w-4 h-4 text-stone-400 group-hover:text-indigo-600 transition-colors" />
@@ -271,7 +273,7 @@ function SidebarContent() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           style={{ backgroundColor: "#e1e9ff" }}
-          className="p-4 rounded-3xl bg-stone-50 dark:bg-stone-800/50 border border-stone-100 dark:border-stone-700"
+          className="p-4 rounded-3xl bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-800/50"
         >
           <div className="flex items-center gap-2 mb-3">
             <Phone className="w-3 h-3 text-indigo-600" />
@@ -308,7 +310,7 @@ function SidebarContent() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           style={{ backgroundColor: "#fffb99" }}
-          className="p-4 rounded-3xl bg-stone-50 dark:bg-stone-800/50 border border-stone-100 dark:border-stone-700"
+          className="p-4 rounded-3xl bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-800/50"
         >
           <div className="flex items-center gap-2 mb-1">
             <MapPin className="w-3 h-3 text-stone-500" />
@@ -353,6 +355,7 @@ export default function App() {
     return false;
   });
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+  const [isTreatmentsOpen, setIsTreatmentsOpen] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { voices, selectedVoiceIndex, setSelectedVoiceIndex, speak, stop, isSpeaking } = useTTS();
   const [currentlySpeakingId, setCurrentlySpeakingId] = useState<number | null>(null);
@@ -476,6 +479,8 @@ export default function App() {
                   </div>
                   <span className="text-sm text-stone-700 dark:text-stone-200">Wellness Chat</span>
                 </div>
+
+
               </div>
 
             <SidebarContent />
@@ -500,7 +505,7 @@ export default function App() {
         <div className="space-y-2">
           <div 
             style={{ backgroundColor: "#c2e481", borderStyle: "dashed" }}
-            className="w-full p-3 rounded-2xl flex items-center gap-3 bg-white dark:bg-stone-800 border border-stone-100 dark:border-stone-700 shadow-lg font-bold group hover:border-orange-500 transition-all cursor-pointer"
+            className="w-full p-3 rounded-2xl flex items-center gap-3 bg-stone-50 dark:bg-stone-800 border border-stone-100 dark:border-stone-700 shadow-sm font-bold group hover:border-orange-500 transition-all cursor-pointer"
           >
             <div className="w-10 h-10 rounded-xl overflow-hidden bg-white flex items-center justify-center p-1.5 shadow-sm border border-stone-100">
               <img 
@@ -548,7 +553,7 @@ export default function App() {
               onClick={handleClearChat}
               title="Clear Everything"
               style={{ backgroundColor: "#de595c" }}
-              className="p-2.5 bg-red-500/80 hover:bg-red-600 rounded-full text-white hover:scale-110 transition-all shadow-lg"
+              className="p-2.5 bg-red-500 hover:bg-red-600 rounded-full text-white hover:scale-110 transition-all shadow-lg"
             >
               <Trash2 className="w-4 h-4" />
             </button>
@@ -559,7 +564,7 @@ export default function App() {
             >
               {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
-            
+
             <button 
               onClick={() => setIsContactFormOpen(true)}
               style={{ backgroundColor: "#4e925b" }}
@@ -574,7 +579,7 @@ export default function App() {
         {/* Scrolling Announcement */}
         <div 
           style={{ backgroundColor: "#fdf8ff", color: "#0ad3f8" }}
-          className="bg-blue-600 dark:bg-blue-700 text-white py-2 overflow-hidden whitespace-nowrap relative z-10 shadow-sm"
+          className="bg-indigo-600 dark:bg-indigo-900 text-white py-2 overflow-hidden whitespace-nowrap relative z-10 shadow-sm"
         >
           <motion.div
             animate={{ x: ["10%", "-100%"] }}
@@ -665,7 +670,7 @@ export default function App() {
                             "mt-3 p-1.5 rounded-lg transition-all float-right",
                             currentlySpeakingId === index && isSpeaking 
                               ? "bg-indigo-500 text-white" 
-                              : "bg-indigo-50 text-indigo-600 hover:bg-indigo-100"
+                              : "bg-indigo-50 text-indigo-600 hover:bg-indigo-100 dark:text-indigo-400 dark:bg-stone-800"
                           )}
                         >
                           {currentlySpeakingId === index && isSpeaking ? <VolumeX className="w-3 h-3" /> : <Volume2 className="w-3 h-3" />}
@@ -712,6 +717,31 @@ export default function App() {
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-green-500/50 to-transparent" />
           
           <div className="max-w-4xl mx-auto space-y-4 relative z-10">
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              style={{ 
+                borderStyle: "inset",
+                marginLeft: "0px",
+                paddingLeft: "-20px",
+                paddingRight: "-20px",
+                backgroundColor: "#dff4e2",
+                borderRadius: "-5000px"
+              }}
+              className="flex justify-center flex-wrap gap-2"
+            >
+              {SUGGESTIONS.map((s) => (
+                <button
+                  key={s.id}
+                  onClick={() => handleSend(s.query)}
+                  className="text-[10px] font-bold uppercase px-3 py-1.5 rounded-lg border border-stone-200 dark:border-stone-700 bg-white/50 dark:bg-stone-900/50 text-stone-600 dark:text-stone-400 hover:bg-green-50 hover:text-green-600 dark:hover:bg-green-900/20 transition-all hover:border-green-500/30"
+                >
+                  {s.label}
+                </button>
+              ))}
+            </motion.div>
+
             <div className="relative group">
               <input 
                 type="text" 
@@ -743,31 +773,6 @@ export default function App() {
                 </button>
               </div>
             </div>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              style={{ 
-                borderStyle: "inset",
-                marginLeft: "0px",
-                paddingLeft: "-20px",
-                paddingRight: "-20px",
-                backgroundColor: "#dff4e2",
-                borderRadius: "-5000px"
-              }}
-              className="flex justify-center flex-wrap gap-2"
-            >
-              {SUGGESTIONS.map((s) => (
-                <button
-                  key={s.id}
-                  onClick={() => handleSend(s.query)}
-                  className="text-[10px] font-bold uppercase px-3 py-1.5 rounded-lg border border-stone-200 dark:border-stone-700 bg-white/50 dark:bg-stone-900/50 text-stone-600 dark:text-stone-400 hover:bg-green-50 hover:text-green-600 dark:hover:bg-green-900/20 transition-all hover:border-green-500/30"
-                >
-                  {s.label}
-                </button>
-              ))}
-            </motion.div>
           </div>
         </div>
       </main>
@@ -775,6 +780,34 @@ export default function App() {
       <AnimatePresence>
         {isContactFormOpen && (
           <ContactForm onClose={() => setIsContactFormOpen(false)} />
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {isTreatmentsOpen && (
+          <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 sm:p-6 lg:p-10">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsTreatmentsOpen(false)}
+              className="absolute inset-0 bg-stone-950/40 backdrop-blur-md"
+            />
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-4xl h-[80vh] z-10"
+            >
+              <button 
+                onClick={() => setIsTreatmentsOpen(false)}
+                className="absolute -top-12 right-0 sm:-right-12 p-3 text-white hover:text-green-400 transition-colors bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-md"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              <TreatmentDirectory />
+            </motion.div>
+          </div>
         )}
       </AnimatePresence>
 

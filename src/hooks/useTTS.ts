@@ -12,15 +12,17 @@ export function useTTS() {
       const availableVoices = synth.getVoices();
       
       // Filter for only Google Hindi and Google US English
-      const filtered = availableVoices.filter(v => 
-        (v.name.toLowerCase().includes('google') && v.lang.startsWith('hi')) || 
-        (v.name.toLowerCase().includes('google') && (v.lang === 'en-US' || v.lang === 'en_US'))
-      );
+      const filtered = availableVoices.filter(v => {
+        const name = (v.name || "").toLowerCase();
+        const lang = v.lang || "";
+        return (name.includes('google') && lang.startsWith('hi')) || 
+               (name.includes('google') && (lang === 'en-US' || lang === 'en_US'));
+      });
 
       setVoices(filtered);
       
       // Default to Google Hindi if available, otherwise first available in filtered list
-      const hiIndex = filtered.findIndex(v => v.lang.startsWith('hi'));
+      const hiIndex = filtered.findIndex(v => (v.lang || "").startsWith('hi'));
       if (hiIndex !== -1) {
         setSelectedVoiceIndex(hiIndex);
       } else if (filtered.length > 0) {
