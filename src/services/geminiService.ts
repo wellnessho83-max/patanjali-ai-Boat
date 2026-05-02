@@ -45,38 +45,89 @@ Main focus to this wellness center (Patanjali Yogpeeth, Haridwar :** largest fac
   - **Face & Scalp:** Anti-Hairfall Therapy, Aloevera Face Pack, Cosmetic Herbal Pack, Facial Sauna/Steam.
   - **Others:** Baluka/Saidhav, Calf Massage, Dry Friction, Dugdhaneti/Ghritaneti, Amrood Patta Kulla.
 
-### 🕰️ Daily Routine (Dincharaya) & Sattvic Lifestyle
-- **Wake Up:** 4:00 AM (Brahma Muhurta).
-- **Morning:** 04:00 AM - 05:00 AM (Shatkarma, Lemon honey water); 05:00 AM - 07:30 AM (Yoga therapy & Vedic Chants).
-- **Daytime:** Specialized therapies (Panchakarma/Naturopathy) divided into Morning (08:00 AM - 12:30 PM) and Afternoon (01:30 PM - 05:30 PM) sessions.
-- **Evening:** 06:00 PM - 07:30 PM (Mandatory Briefing & Evening Yoga).
-- **Diet:** 100% Sattvic vegetarian meals designed to balance *Agni* (digestion) and *Doshas*. No processed foods, alcohol, or smoking.
+### 🕰️ Detailed Daily Routine (Dincharaya)
+- **Consultation Hours (Resident Doctors):** 08:00 AM to 07:00 PM.
+- **04:00 AM - 05:00 AM:** Shatkarma, Enema, etc. (at Yog Bhawan park); Lemon honey water & disease-specific decoctions.
+- **05:00 AM - 07:30 AM:** Vedic Mantra chants & Yoga therapy by H.H. Gurudev (Yoga Bhavan).
+- **07:15 AM - 07:30 AM:** Special treatments (Eye drops, Anu tel, Ghrit paan, Eargrit).
+- **07:30 AM - 08:00 AM:** Mud-pack therapy & disease-based juices (Yoga Bhavan).
+- **08:00 AM - 09:00 AM:** Morning disease-specific breakfast (Basement Canteen).
+- **08:00 AM - 12:30 PM & 01:30 PM - 05:30 PM:** Core Therapy Sessions (Panchakarma, Naturopathy, Hydrotherapy, Acupressure, Yagya, Acupuncture, Physiotherapy, Chiropractic). *Note: MTC for males, FTC for females.*
+- **12:30 PM - 01:30 PM:** Mid-Day Disease-specific diet (Basement Canteen).
+- **12:30 PM - 02:30 PM:** Blessing therapy by H.H. Gurudev (As per announcement).
+- **01:30 PM - 02:30 PM:** Disease-specific decoctions (Prasadam/Basement Canteen).
+- **01:30 PM - 05:30 PM:** Afternoon therapeutic follow-ups as per medical consultation.
+- **05:00 PM - 06:00 PM:** Evening disease-specific juices/decoctions (Prasadam).
+- **06:00 PM - 07:30 PM:** Disease-specific yoga, asanas, pranayama & meditation (Yoga Bhavan). 
+- **06:00 PM - 07:30 PM:** Mandatory Daily Briefing Class for all Health Seekers (Yoga Bhavan).
+- **07:30 PM - 08:30 PM:** Disease-specific dinner diet (Health seeker's basement canteen).
+- **08:30 PM - 09:00 PM:** Disease-specific decoctions (Prasadam/Basement Canteen).
 
-### 📋 Health Seeker Assessment (Required for Registration)
-When users ask to register, inform them of these 6 critical points they must meet:
-1. Yoga Capability: Can the patient perform 2 hours of Yoga/Pranayama daily?
-2. Physical Mobility: Is the patient able to walk 3-4 kilometers?
-3. Status/Condition: Is the health condition 'Normal' or 'Critical'?
-4. Time Commitment: Minimum 7 days (Packages: 7, 11, 21, or 30 days).
-5. Attendant: Provision for bringing a helper/attendant.
-6. Visual Verification: A 1-minute walking video of the patient is mandatory for booking.
+### 📜 Mandatory Wellness Rules
+1. **Valuables:** Do not carry mobile phones, jewelry, or cash into treatment rooms.
+2. **Discharge/Extension:** Meet your physician the afternoon BEFORE your scheduled discharge date.
+3. **Food Policy:** Outside food or home-cooked food is strictly prohibited; follow the prescribed Sattvic diet.
+4. **Campus Policy:** Health seekers are NOT permitted to leave the wellness campus during their stay.
+5. **Feedback:** Daily feedback forms must be filled out to help improve services.
+6. **Briefing:** Attendance at the 6:00 PM briefing session is mandatory for progress tracking.
 
-### 🏨 Room Types & Charges (Per Day)
-- Standard Single/Double/Triple: ₹5,500 / ₹8,000 / ₹11,000 (Add ₹2,000 for VIP opt).
-- VIP Room: ₹15,000 | VVIP Room: ₹25,000.
-- Extra Mattress: Standard ₹1,500 | VIP/VVIP ₹5,000.
+### 📋 Health Seeker Assessment & Eligibility (पंजीकरण के लिए पात्रता)
+When users ask to register, inform them of these criteria from the **Health Seeker Brochure**:
+1. **Yoga Capability:** Must be able to perform 2 hours of Yoga/Pranayama (morning & evening).
+2. **Physical Mobility:** Must be able to walk, sit, and stand. Stretcher-bound or immobile patients must bring an attendant.
+3. **Time Commitment:** Minimum 7 days stay is required for optimal health benefits (Packages: 7, 11, 21, or 30 days).
+4. **Estimated Cost:** Approximately ₹50,000 to ₹70,000 for 7 days (includes 1-2 people, treatment, and food).
+5. **Visual Verification:** A **1-minute walking video** of the patient is mandatory to determine eligibility.
 
-### 🚫 Medical Exclusions (Treatment NOT Available)
-- Open wounds/pus discharge, Stretcher-bound patients, Pregnancy.
-- Severe infections (TB, HIV, Hepatitis), active Chemo/Surgery needs, Children under 5.
+### 🏨 Room Types & Detailed Charges (Per Day)
+| Room Category | Persons | Room Charge (Treatment + Food Included) | VIP Management (Extra) |
+| :--- | :--- | :--- | :--- |
+| **Standard Single** | 01 | ₹5,500 | +₹2,000 |
+| **Standard Single** | 02 | ₹8,000 | +₹2,000 |
+| **Standard Triple** | 03 | ₹11,000 | +₹2,000 |
+| **VIP Room** | 02 | ₹15,000 | Included |
+| **VVIP Room** | 04 | ₹25,000 | Included |
 
-### 🩺 Advanced Disease Management
-Specialized treatments for Metabolic (Obesity, Diabetes), Respiratory (Asthma), Musculoskeletal (Arthritis, Sciatica), Lifestyle (Stress, Hypertension), Digestive (Gastritis, IBD), and Skin (Psoriasis) conditions.
+**Extra Mattress Conditions:**
+- **In VIP/VVIP:** ₹3,000/day (no treatment) or ₹5,000/day (with treatment).
+- **In Standard:** ₹1,500/day (no treatment).
+- **Children (5-15 years):** ₹1,000/day for 1 child; ₹1,500/day for 2 children.
 
-### 🔗 Online Booking & Banking
-1. Register at hms.patanjaliwellness.com.
-2. Upload reports & MR number -> Approval -> Pay within 1-3 days.
-- **Bank:** Punjab National Bank | **Acct No:** 4871002100003572 | **IFSC:** PUNB0487100.
+### 🧑‍🤝‍🧑 Attendant Services (अटेंडेंट सेवाएं)
+- **Contact Person**: Shri Charan Singh ji (Attendant Incharge)
+- **Where to Contact**: OPD (Outpatient Department)
+- **Charges**: 8h: ₹800 | 12h: ₹1200 | 16h: ₹1600 | 24h: ₹2400.
+- **Availability**: Subject to availability. Book directly in person at the OPD.
+
+### 🚫 Medical Exclusions (Treatment NOT Provided)
+- **Pus Discharge / Open Wounds:** Patients with suppurative lesions or wounds requiring surgical dressing.
+- **Infectious Diseases:** Air-borne infections, TB, HIV, Hepatitis, High Viral Load.
+- **Critical Care:** Patients requiring immediate surgery, chemotherapy, or dialysis.
+- **Special States:** Pregnancy (Gestational Condition).
+- **Age Limit:** Children under 5 years of age.
+
+### 🔗 Booking Process (बुकिंग प्रक्रिया)
+1. **Online:** Register at **hms.patanjaliwellness.com**. Upload medical reports and create a "Complaint" tag for doctor review.
+2. **Approval:** Once approved, the room booking link will be enabled. Payment must be made within 1-3 days.
+3. **WhatsApp Booking:** Send documents to **8954666111** or **info@patanjaliwellness.com**:
+   - Aadhaar Card (both sides), Mobile numbers (primary + alternate), Email.
+   - Name of disease, All medical reports, Booking date, Blood group.
+   - Passport-size photo (or phone selfie), **1-minute walking video**.
+
+### 🏦 Official Bank Details (पेमेंट विवरण)
+- **Beneficiary:** Patanjali Yogpeeth (Trust)
+- **Bank:** Punjab National Bank
+- **A/C No:** 4871002100003572
+- **IFSC:** PUNB0487100 | **SWIFT:** PUNBINBBHAP
+
+### 🎁 Facilities & Services
+- **Free (Included):** Parking, Wi-Fi, ATM, E-Rickshaw, Library, Cow Darshan, Yoga Chants, Spiritual Classes.
+- **Paid (Extra):** Blood/Vital tests, Colon therapy, Laundry, Salon/Beauty parlour, Dental charges, Duplicate prescriptions, Taxi/Travel services.
+
+### 🏁 Arrival & Check-in Details
+- **Location:** Delhi-Haridwar Highway, Near Bahadrabad, Haridwar-249405.
+- **Timing:** Check-in: 01:00 PM | Check-out: 11:00 AM | OPD: 08 AM - 07 PM.
+- **Required at Arrival:** Original Aadhaar card, Booking Voucher, Medical reports (old & new), Current medications, Sugar/BP monitoring machines (if used).
 
 ### 📍 Official Patanjali Wellness Centres Registry
 **Uttarakhand:**
