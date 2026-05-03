@@ -20,7 +20,9 @@ import {
   ChevronDown,
   CheckCircle2,
   Sun,
-  Moon
+  Moon,
+  Maximize,
+  Minimize
 } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
@@ -356,6 +358,7 @@ export default function App() {
   });
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
   const [isTreatmentsOpen, setIsTreatmentsOpen] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { voices, selectedVoiceIndex, setSelectedVoiceIndex, speak, stop, isSpeaking } = useTTS();
   const [currentlySpeakingId, setCurrentlySpeakingId] = useState<number | null>(null);
@@ -381,6 +384,26 @@ export default function App() {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isLoading]);
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
+
+  const toggleFullScreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch((err) => {
+        console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+      });
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  };
 
   const handleSend = async (text: string) => {
     if (!text.trim() || isLoading) return;
@@ -563,6 +586,14 @@ export default function App() {
               className="p-2.5 bg-white/40 hover:bg-white/60 backdrop-blur-md rounded-full text-blue-900"
             >
               {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
+
+            <button 
+              onClick={toggleFullScreen}
+              title={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
+              className="p-2.5 bg-white/30 hover:bg-white/50 backdrop-blur-md rounded-full text-stone-700 dark:text-stone-200 transition-all shadow-sm flex items-center justify-center"
+            >
+              {isFullscreen ? <Minimize className="w-4 h-4" /> : <Maximize className="w-4 h-4" />}
             </button>
 
             <button 
