@@ -27,6 +27,7 @@ import {
 import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import { chatWithWellnessAI } from "./services/geminiService";
+
 import { YOGA_POSES, type YogaPose } from "./constants/yogaData";
 import { ContactForm } from "./components/ContactForm";
 import { CONTACT_DATA } from "./constants/contactData";

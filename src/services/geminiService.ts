@@ -197,5 +197,5 @@ export async function chatWithWellnessAI(
       throw error;
     }
     throw new Error("I'm having trouble connecting to my wellness knowledge base. Please try again later.");
-}
+  }
 }
