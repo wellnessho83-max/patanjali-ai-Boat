@@ -11,18 +11,33 @@ export function useTTS() {
     const loadVoices = () => {
       const availableVoices = synth.getVoices();
       
-      // Filter for only Google Hindi and Google US English
-      const filtered = availableVoices.filter(v => {
+      // Try to first filter for Google/Microsoft premium Hindi and Google US English
+      let filtered = availableVoices.filter(v => {
         const name = (v.name || "").toLowerCase();
         const lang = v.lang || "";
         return (name.includes('google') && lang.startsWith('hi')) || 
-               (name.includes('google') && (lang === 'en-US' || lang === 'en_US'));
+               (name.includes('google') && (lang === 'en-US' || lang === 'en_US')) ||
+               (name.includes('microsoft') && lang.startsWith('hi')) ||
+               (name.includes('microsoft') && (lang === 'en-US' || lang === 'en_US'));
       });
+
+      // Backup: Any Hindi or English voices if no premium ones are found
+      if (filtered.length === 0) {
+        filtered = availableVoices.filter(v => {
+          const lang = v.lang || "";
+          return lang.toLowerCase().startsWith('hi') || lang.toLowerCase().startsWith('en');
+        });
+      }
+
+      // Final fallback: Use all available voices
+      if (filtered.length === 0) {
+        filtered = availableVoices;
+      }
 
       setVoices(filtered);
       
-      // Default to Google Hindi if available, otherwise first available in filtered list
-      const hiIndex = filtered.findIndex(v => (v.lang || "").startsWith('hi'));
+      // Default to Hindi if available, otherwise first available in filtered list
+      const hiIndex = filtered.findIndex(v => (v.lang || "").toLowerCase().startsWith('hi'));
       if (hiIndex !== -1) {
         setSelectedVoiceIndex(hiIndex);
       } else if (filtered.length > 0) {
@@ -56,7 +71,7 @@ export function useTTS() {
       .trim();
   };
 
-  const speak = useCallback((text: string) => {
+  const speak = useCallback((text: string, langPreference?: 'en' | 'hi', onStart?: () => void) => {
     const synth = window.speechSynthesis;
     if (synth.speaking) {
       synth.cancel();
@@ -64,11 +79,29 @@ export function useTTS() {
 
     const cleanedText = cleanText(text);
     const utterThis = new SpeechSynthesisUtterance(cleanedText);
-    if (voices[selectedVoiceIndex]) {
-      utterThis.voice = voices[selectedVoiceIndex];
+    
+    // Choose a voice matching the specified language preference first
+    let selectedVoice = voices[selectedVoiceIndex];
+    if (langPreference) {
+      const preferredVoice = voices.find(v => (v.lang || "").toLowerCase().startsWith(langPreference));
+      if (preferredVoice) {
+        selectedVoice = preferredVoice;
+      }
     }
 
-    utterThis.onstart = () => setIsSpeaking(true);
+    if (selectedVoice) {
+      utterThis.voice = selectedVoice;
+      utterThis.lang = selectedVoice.lang;
+    } else if (langPreference) {
+      utterThis.lang = langPreference === 'hi' ? 'hi-IN' : 'en-US';
+    }
+
+    utterThis.onstart = () => {
+      setIsSpeaking(true);
+      if (onStart) {
+        onStart();
+      }
+    };
     utterThis.onend = () => setIsSpeaking(false);
     utterThis.onerror = () => setIsSpeaking(false);
 
